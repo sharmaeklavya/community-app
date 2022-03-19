@@ -1,0 +1,35 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "## [Live Preview - Delivery App](https://proj-community.herokuapp.com)",
+  "main": "index.js",
+  "engines": {
+    "node": "v14.17.4"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharmaeklavya/community-app.git"
+  },
+  "keywords": [],
+  "author": "Eklavya Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharmaeklavya/community-app/issues"
+  },
+  "homepage": "https://proj-community.herokuapp.com",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.6",
+    "nanoid": "^3.3.1",
+    "validator": "^13.7.0"
+  }
+}
