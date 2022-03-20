@@ -10,7 +10,7 @@ export const UserAuth = {
         return response.data;
       }
     } catch (err) {
-      console.error(err.response.data);
+      console.error(err.response);
     }
   },
 };
