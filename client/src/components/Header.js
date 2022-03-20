@@ -15,7 +15,6 @@ function Header() {
   });
 
   useEffect(() => {
-    console.log(validUser);
     if (validUser) {
       const accountInfo = decode(validUser.refreshToken);
       setUser({
@@ -35,7 +34,7 @@ function Header() {
         window.location.reload();
       }
     } catch (err) {
-      console.log(err.response);
+      console.error(err.response);
     }
   };
 
