@@ -28,8 +28,8 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      const res = await baseApi.post("api/auth/logout", { id: user.id });
-      if (res.data) {
+      const response = await baseApi.post("api/auth/logout", { id: user.id });
+      if (response.data) {
         history.push("/");
         window.location.reload();
       }
@@ -43,21 +43,21 @@ function Header() {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-12">
-            <nav className="navi">
-              <Link to="/" className="logo">
-                <h4 className="sub-heading text-light mt-2 mb-0">
-                  Community Blog
-                </h4>
-                <small className="small text-light">
-                  An ultimate place for answers
-                </small>
-              </Link>
-              <div className="cta">
-                <input className="menu-btn" type="checkbox" id="menu-btn" />
-                <label className="menu-icon" htmlFor="menu-btn">
-                  <span className="navicon"></span>
-                </label>
-                {validUser ? (
+            {validUser ? (
+              <nav className="navi">
+                <Link to="/account" className="logo">
+                  <h4 className="sub-heading text-light mt-2 mb-0">
+                    Community Blog
+                  </h4>
+                  <small className="small text-light">
+                    An ultimate place for answers
+                  </small>
+                </Link>
+                <div className="cta">
+                  <input className="menu-btn" type="checkbox" id="menu-btn" />
+                  <label className="menu-icon" htmlFor="menu-btn">
+                    <span className="navicon"></span>
+                  </label>
                   <ul className="menu">
                     <li className="menu-item">
                       <button className="cta-btn navi-btn shadow-lg">
@@ -75,7 +75,23 @@ function Header() {
                       </Link>
                     </li>
                   </ul>
-                ) : (
+                </div>
+              </nav>
+            ) : (
+              <nav className="navi">
+                <Link to="/" className="logo">
+                  <h4 className="sub-heading text-light mt-2 mb-0">
+                    Community Blog
+                  </h4>
+                  <small className="small text-light">
+                    An ultimate place for answers
+                  </small>
+                </Link>
+                <div className="cta">
+                  <input className="menu-btn" type="checkbox" id="menu-btn" />
+                  <label className="menu-icon" htmlFor="menu-btn">
+                    <span className="navicon"></span>
+                  </label>
                   <ul className="menu">
                     <li className="menu-item">
                       <Link
@@ -91,9 +107,9 @@ function Header() {
                       </Link>
                     </li>
                   </ul>
-                )}
-              </div>
-            </nav>
+                </div>
+              </nav>
+            )}
           </div>
         </div>
       </div>
