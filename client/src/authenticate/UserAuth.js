@@ -1,10 +1,14 @@
 import baseApi from "../apis/baseApi";
+import ValidToken from "./ValidToken";
 
 export const UserAuth = {
   getToken: async () => {
     try {
-      const res = await baseApi.post("api/auth/refreshtoken", {});
-      return await res.data;
+      const response = await baseApi.post("api/auth/refreshtoken", {});
+      if (response) {
+        ValidToken(response.data);
+        return response.data;
+      }
     } catch (err) {
       console.error(err.response.data);
     }

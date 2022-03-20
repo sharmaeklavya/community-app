@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Types } from "../redux/constants/types";
 import { UserAuth } from "./UserAuth";
 import LoadSvg from "./LoadSvg";
 
@@ -13,7 +12,6 @@ function Protected({ component: Component, ...rest }) {
     (async () => {
       const response = await UserAuth.getToken();
       if (response) {
-        dispatch({ type: Types.VALID_USER, payload: response });
         setIsLoggedIn(1);
       } else setIsLoggedIn(0);
     })();
