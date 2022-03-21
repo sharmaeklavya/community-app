@@ -52,7 +52,10 @@ function Post(props) {
         const response = await baseApi.post("/api/posts/addcomment", values, {
           headers: { authorization: `Bearer ${user.refreshToken}` },
         });
-        if (response) formik.errors.responseError = response.data;
+        if (response) {
+          formik.errors.responseError = response.data;
+          window.location.reload();
+        }
       } catch (err) {
         if (typeof err.response.data === "object") {
           Object.keys(err.response.data).some((k) => {
