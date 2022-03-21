@@ -41,10 +41,10 @@ function Login() {
     validate,
     onSubmit: async (values) => {
       try {
-        const res = await baseApi.post("api/auth/login", values);
+        const res = await baseApi.post("/api/auth/login", values);
         if (res.data.refreshToken) {
           dispatch({ type: Types.VALID_USER, payload: res.data });
-          history.push("/account");
+          history.push("/");
         }
       } catch (err) {
         formik.errors.responseError = err.response.data;
@@ -52,6 +52,7 @@ function Login() {
       }
     },
   });
+
   return (
     <React.Fragment>
       <Header />

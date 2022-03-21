@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { register, login, logout } = require("../controller/users");
-const { addcomment } = require("../controller/comments");
+const { addcomment, deletecomment } = require("../controller/comments");
 const { createpost, allposts, deletepost } = require("../controller/posts");
 const { userAuth, refreshToken } = require("../model/authentication");
 
@@ -18,6 +18,7 @@ router.get("/api/posts/allposts", allposts);
 
 // comment collection
 router.post("/api/posts/addcomment", userAuth, addcomment);
+router.post("/api/posts/deletecomment", userAuth, deletecomment);
 
 // refresh token
 router.post("/api/auth/refreshtoken", refreshToken);

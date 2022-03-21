@@ -5,15 +5,15 @@ const UserCollection = require("./userSchema");
 // ******************************************** //
 
 const signedJWT = (user) => {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_KEY, { expiresIn: "20s" });
+  return jwt.sign(user, process.env.ACCESS_TOKEN_KEY, { expiresIn: "1m" });
 };
 
 // ******** refresh token ******* //
 // ******************************************** //
 
 const refreshToken = async (req, res) => {
-  const refreshToken = req.cookies.SSID;
-  console.log(refreshToken);
+  const refreshToken = req.cookies.__SSID;
+
   if (refreshToken === null) return res.sendStatus(401);
 
   const userExists = await UserCollection.findOne({
@@ -36,7 +36,7 @@ const userAuth = async (req, res, next) => {
   const authHeader = await req.headers["authorization"];
   const refreshToken = authHeader && authHeader.split(" ")[1];
 
-  if (!refreshToken) res.sendStatus(401);
+  if (!refreshToken) res.status(401).json("Unauthorized Access!");
 
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_KEY, (err, user) => {
     if (err) res.sendStatus(401);

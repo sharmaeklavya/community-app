@@ -15,6 +15,7 @@ const commentSchema = new Schema({
   },
   commentDesc: {
     type: String,
+    trim: true,
     required: true,
     unique: true,
   },

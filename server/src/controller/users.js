@@ -126,7 +126,7 @@ module.exports.login = async (req, res) => {
           { $set: { refreshToken: refreshToken } }
         );
         // setting up a cookie in the browser
-        res.cookie("SSID", refreshToken, {
+        res.cookie("__SSID", refreshToken, {
           httpOnly: true,
           path: "/api/auth/refreshtoken",
           sameSite: "Strict",

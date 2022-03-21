@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Loader from "./Loader";
+import Skelton from "./Skelton";
 
 function AllPosts(props) {
   const history = useHistory();
@@ -39,7 +39,7 @@ function AllPosts(props) {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-md-12">
-                <Loader />
+                <Skelton />
               </div>
             </div>
           </div>

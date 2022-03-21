@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { UserAuth } from "./UserAuth";
-import LoadSvg from "./LoadSvg";
+import { Types } from "../redux/constants/types";
+import LoadAnim from "../components/LoadAnim";
 
 function Protected({ component: Component, ...rest }) {
   const dispatch = useDispatch();
@@ -12,15 +13,17 @@ function Protected({ component: Component, ...rest }) {
     (async () => {
       const response = await UserAuth.getToken();
       if (response) {
+        dispatch({ type: Types.VALID_USER, payload: response.data });
         setIsLoggedIn(1);
       } else setIsLoggedIn(0);
     })();
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (isLoggedIn === -1)
     return (
       <div className="container">
-        <LoadSvg />
+        <LoadAnim />
       </div>
     );
 

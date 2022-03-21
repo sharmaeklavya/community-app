@@ -75,3 +75,51 @@ module.exports.addcomment = async (req, res) => {
     res.status(500).json(errors);
   }
 };
+
+// ******** delete a new comment to database ************ //
+// ******************************************** //
+
+module.exports.deletecomment = async (req, res) => {
+  // try {
+  //   const user = req.user;
+  //   // submitting new meal to the database
+  //   const commentAdded = await CommentCollection.create({
+  //     userId: user._id,
+  //     postId: req.body.postId,
+  //     commentDesc: req.body.commentDesc,
+  //   });
+  //   // if above opertion is successful send a green signal
+  //   if (commentAdded) {
+  //     await UserCollection.updateOne(
+  //       { _id: ObjectId(user._id) },
+  //       {
+  //         $push: {
+  //           comments: {
+  //             $each: [{ _id: commentAdded._id }],
+  //             $position: 0,
+  //           },
+  //         },
+  //       }
+  //     );
+  //     await PostCollection.updateOne(
+  //       { _id: ObjectId(req.body.postId) },
+  //       {
+  //         $push: {
+  //           comments: {
+  //             $each: [{ _id: commentAdded._id }],
+  //             $position: 0,
+  //           },
+  //         },
+  //       }
+  //     );
+  //     res.status(200).json("Comment added successfully");
+  //   } else {
+  //     res.status(400).json("Comment could not be added");
+  //   }
+  //   // if any errors, log them
+  // } catch (err) {
+  //   const errors = handleErrors(err);
+  //   console.error(errors);
+  //   res.status(500).json(errors);
+  // }
+};

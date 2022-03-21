@@ -21,7 +21,7 @@ function Home() {
       <Route path="/posts" exact>
         <Post posts={allPosts} />
       </Route>
-      <Route path="/">
+      <Route path="/" exact>
         <AllPosts posts={allPosts} />
       </Route>
     </React.Fragment>

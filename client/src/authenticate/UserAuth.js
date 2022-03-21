@@ -1,16 +1,17 @@
 import baseApi from "../apis/baseApi";
-import ValidToken from "./ValidToken";
+export const controller = new AbortController();
 
 export const UserAuth = {
   getToken: async () => {
     try {
-      const response = await baseApi.post("api/auth/refreshtoken", {});
-      if (response) {
-        ValidToken(response.data);
-        return response.data;
-      }
+      const response = await baseApi.post(
+        "/api/auth/refreshtoken",
+        {},
+        { signal: controller.signal }
+      );
+      return response.data;
     } catch (err) {
-      console.error(err.response);
+      console.error(err.response.data);
     }
   },
 };

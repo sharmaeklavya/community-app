@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://proj-community.herokuapp.com/",
+  baseURL: "https://proj-community.herokuapp.com",
+  // withCredentials: true,
 });

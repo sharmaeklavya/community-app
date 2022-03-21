@@ -1,6 +1,6 @@
 import React from "react";
 
-function LoadSvg() {
+function LoadAnim() {
   return (
     <div className="row vh-100 align-items-center">
       <div className="col-md-12">
@@ -18,4 +18,4 @@ function LoadSvg() {
   );
 }
 
-export default LoadSvg;
+export default LoadAnim;

@@ -104,7 +104,7 @@ function Register() {
     validate,
     onSubmit: async (values) => {
       try {
-        const res = await baseApi.post("api/auth/register", values);
+        const res = await baseApi.post("/api/auth/register", values);
         if (res.data) {
           alert("Registered Successfully");
           history.push("/login");

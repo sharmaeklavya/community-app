@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-const Loader = (props) => (
+const Skelton = (props) => (
   <ContentLoader viewBox="0 0 400 460" {...props}>
     <circle cx="31" cy="31" r="15" />
     <rect x="58" y="18" rx="2" ry="2" width="140" height="10" />
@@ -10,4 +10,4 @@ const Loader = (props) => (
   </ContentLoader>
 );
 
-export default Loader;
+export default Skelton;

@@ -6,35 +6,33 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { UserAuth } from "./authenticate/UserAuth";
+import { UserAuth, controller } from "./authenticate/UserAuth";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Account from "./components/Account";
-import Protected from "./authenticate/PrivateRoute";
+// import Protected from "./authenticate/PrivateRoute";
 
 function App() {
   const [userLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    UserAuth.getToken()
-      .then((res) => {
-        if (res) setLoggedIn(true);
-      })
-      .catch((err) => setLoggedIn(false));
+    (async () => {
+      const response = await UserAuth.getToken();
+      if (response) setLoggedIn(true);
+      else setLoggedIn(false);
+    })();
+    return () => controller.abort();
   }, []);
 
   return (
     <Router>
       <Switch>
-        <Protected path="/account" component={Account} exact />
+        {/* <Protected path="/" component={} exact /> */}
         <Route path="/register" component={Register} exact />
         <Route path="/login" exact>
-          {userLoggedIn ? <Redirect to="/account" /> : <Login />}
+          {userLoggedIn ? <Redirect to="/" /> : <Login />}
         </Route>
-        <Route path="/">
-          {userLoggedIn ? <Redirect to="/account" /> : <Home />}
-        </Route>
+        <Route path="/" component={Home}></Route>
       </Switch>
     </Router>
   );
