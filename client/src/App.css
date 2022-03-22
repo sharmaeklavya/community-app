@@ -1,4 +1,5 @@
 :root {
+  --xl-large-sizee: 3rem;
   --large-size : 1.40rem;
   --medium-size : 1.20rem;
   --normal-size : 1rem;
@@ -271,7 +272,8 @@
 
 /* Main content */
 .post{
-  padding: var(--medium-size);
+  padding-left: var(--medium-size);
+  padding-right: var(--medium-size);
   border-radius: 5px;
   border: 1px solid var(--primary-color);
 }
@@ -347,5 +349,9 @@
   .user-form-aside{
     max-width: 360px;
     text-align: left;
+  }
+  .post{
+    padding-left: var(--xl-large-sizee);
+    padding-right: var(--xl-large-sizee);
   }
 }

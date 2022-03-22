@@ -106,7 +106,7 @@ function Post(props) {
                   Delete
                 </button>
               ) : null}
-              <div className="post px-5 pt-5 mx-2 my-5 lg-shadow rounded-lg">
+              <div className="post pt-5 mx-2 my-5 lg-shadow rounded-lg">
                 <p className="body-text md-line-height">{post.postDesc}</p>
                 <hr className="hr" />
                 <div className="row">
