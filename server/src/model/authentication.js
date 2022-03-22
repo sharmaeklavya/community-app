@@ -36,7 +36,8 @@ const userAuth = async (req, res, next) => {
   const authHeader = await req.headers["authorization"];
   const refreshToken = authHeader && authHeader.split(" ")[1];
 
-  if (!refreshToken) res.status(401).json("Unauthorized Access!");
+  if (!refreshToken)
+    res.status(401).json("Unauthorized! Please ensure you have logged in.");
 
   jwt.verify(refreshToken, process.env.REFRESH_TOKEN_KEY, (err, user) => {
     if (err) res.sendStatus(401);

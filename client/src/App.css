@@ -7,6 +7,7 @@
   --semi-weight: 600;
   --normal-weight: 400;
   --light-weight: 300;  
+  --body-color: #0C4A6E;
   --primary-color: #0284C7;
   --secondary-color: #34d399;
   --tertiary-color: #FAFAFA;
@@ -236,6 +237,10 @@
 
 .navi .menu-icon .navicon:after {
   top: -5px;
+}
+
+#postModal{
+  color: var(--body-color);
 }
 
 /* menu btn */

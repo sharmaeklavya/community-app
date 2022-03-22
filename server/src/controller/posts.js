@@ -143,16 +143,19 @@ module.exports.deletepost = async (req, res) => {
 
     const userExists = await UserCollection.updateOne(
       { _id: ObjectId(user._id) },
-      { $pull: { posts: { _id: _id } } }
-    );
+      { $pull: { posts: { _id: ObjectId(_id) } } }
+    ).exec();
 
-    if (!userExists) return res.status(400).json("Couldn't be deleted");
-
-    const deletePost = await PostCollection.deleteOne({ _id });
-
-    if (!deletePost) res.sendStatus(400);
-    else res.status(200).json(deletePost);
-
+    if (userExists.modifiedCount > 0) {
+      const deletePost = await PostCollection.deleteOne({ _id: ObjectId(_id) });
+      if (!deletePost) return res.sendStatus(400);
+      else {
+        await CommentCollection.deleteMany({ postId: ObjectId(_id) });
+        res.status(200).json(deletePost);
+      }
+    } else {
+      return res.status(401).json("Unauthorized Access!");
+    }
     // if any errors, log them
   } catch (err) {
     console.error(err.message);

@@ -47,7 +47,9 @@ function Post(props) {
     },
     validate,
     onSubmit: async (values) => {
-      if (!user) return (formik.errors.responseError = "Unauthorized Access!");
+      if (!user)
+        return (formik.errors.responseError =
+          "Unauthorized! Please ensure you're logged in.");
       try {
         const response = await baseApi.post("/api/posts/addcomment", values, {
           headers: { authorization: `Bearer ${user.refreshToken}` },
@@ -77,6 +79,7 @@ function Post(props) {
           { headers: { authorization: `Bearer ${user.refreshToken}` } }
         );
         history.push("/");
+        setTimeout(() => window.location.reload(), 1000);
       } catch (err) {
         console.error(err.response.data);
       }
@@ -197,7 +200,7 @@ function Post(props) {
                               type="submit"
                               className="cta-btn btn-primary"
                             >
-                              Post Now
+                              Submit
                             </button>
                           </div>
                         </form>
@@ -215,7 +218,8 @@ function Post(props) {
               post.comments
                 .sort(
                   (a, b) =>
-                    new Date(b.commentCreatedOn) - new Date(a.commentCreatedOn)
+                    new Date(b.commentCreatedOn.toString()) -
+                    new Date(a.commentCreatedOn.toString())
                 )
                 .map((comment, i) => (
                   <div key={i} className="col-md-6">
