@@ -26,7 +26,7 @@ function AllPosts(props) {
             .map((post, i) => (
               <div key={i} className="col-sm-6 col-md-4 col-lg-3">
                 <div
-                  className="post mx-2 my-3 md-shadow"
+                  className="post p-4 mx-2 my-3 md-shadow"
                   onClick={() => handleClick(post)}
                 >
                   <h2 className="body-text font-weight-bold mb-3">
