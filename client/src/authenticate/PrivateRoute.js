@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { UserAuth } from "./UserAuth";
 import { Types } from "../redux/constants/types";
-import LoadAnim from "../components/LoadAnim";
+import LoadAnime from "../components/LoadAnim";
 
 function Protected({ component: Component, ...rest }) {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function Protected({ component: Component, ...rest }) {
   if (isLoggedIn === -1)
     return (
       <div className="container">
-        <LoadAnim />
+        <LoadAnime />
       </div>
     );
 
