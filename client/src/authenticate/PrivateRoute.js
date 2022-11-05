@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { UserAuth } from "./UserAuth";
-import { Types } from "../redux/constants/types";
+import { Redirect, Route } from "react-router-dom";
 import LoadAnime from "../components/LoadAnim";
+import { Types } from "../redux/constants/types";
+import { UserAuth } from "./UserAuth";
 
 function Protected({ component: Component, ...rest }) {
   const dispatch = useDispatch();

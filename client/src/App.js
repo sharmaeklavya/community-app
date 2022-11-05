@@ -1,15 +1,15 @@
-import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Redirect,
+  Route,
+  Switch,
 } from "react-router-dom";
-import { UserAuth, controller } from "./authenticate/UserAuth";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import "./App.css";
+import { controller, UserAuth } from "./authenticate/UserAuth";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import Register from "./components/Register";
 // import Protected from "./authenticate/PrivateRoute";
 
 function App() {

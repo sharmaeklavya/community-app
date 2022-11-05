@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Route } from "react-router-dom";
 import { fetchPosts } from "../redux/actions/postAction";
-import Header from "./Header";
 import AllPosts from "./AllPosts";
+import Header from "./Header";
 import Post from "./Post";
 
 function Home() {
