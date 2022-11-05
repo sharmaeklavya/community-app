@@ -1,8 +1,8 @@
+import { useFormik } from "formik";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { useFormik } from "formik";
-import Header from "./Header";
 import baseApi from "../apis/baseApi";
+import Header from "./Header";
 
 function calculate_age(dob) {
   const diff_year = new Date().getFullYear() - new Date(dob).getFullYear();
