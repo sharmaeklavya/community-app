@@ -16,8 +16,8 @@ const validate = (values) => {
   }
   if (!values.postDesc) {
     errors.postDesc = "Required";
-  } else if (values.postDesc.length < 500) {
-    errors.postDesc = "Must be 500 characters or more";
+  } else if (values.postDesc.length < 400) {
+    errors.postDesc = "Must be 400 characters or more";
   }
   return errors;
 };
